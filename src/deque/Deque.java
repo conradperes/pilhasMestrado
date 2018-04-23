@@ -2,11 +2,13 @@ package deque;
 
 import java.util.Scanner;
 
+import exemplo.Pilha;
+
 public class Deque {
 
 	private static final int PILHA_ENCADEADA = 2;
 	private static final int PILHA_SEQUENCIAL = 1;
-	private Character elementos[];
+	private String elementos[];
 	private Deque proximo;
 	private static final int MAX = 100000;
 	private int n;
@@ -14,7 +16,7 @@ public class Deque {
 	public Deque() {
 		super();
 		n = 0;
-		elementos = new Character[MAX];
+		elementos = new String[MAX];
 	}
 
 	public Deque getProximo() {
@@ -27,7 +29,7 @@ public class Deque {
 
 	public static void main(String[] args) {
 		Deque d = new Deque();
-		PilhaEncadeada pilhaEncadeada = new PilhaEncadeada();
+		Pilha pilhaEncadeada = new Pilha();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\tEscolha Pilha : 1- Sequencial 2- Encadeada");
 		int tipoPilha = sc.nextInt();
@@ -36,32 +38,35 @@ public class Deque {
 			while (sc.hasNext())
 				d.escolheOperacoesSequenciais(d, sc);
 		}else  if(tipoPilha==PILHA_ENCADEADA){
-			escolhaOperacoesPilha();
+			escolhaOperacoesPilhaEncadeada();
 			while (sc.hasNext())
 				d.escolheOperacoesEncadeada(sc, pilhaEncadeada);
 		}
 	}
 
-	private void escolheOperacoesEncadeada(Scanner sc, PilhaEncadeada pilha) {
+	private void escolheOperacoesEncadeada(Scanner sc, Pilha pilha) {
 		int op = sc.nextInt();
 		switch (op) {
 		case 1:
-			pilha.empilhar(sc.next().charAt(0));
+			pilha.empilha(sc.next());
 			break;
 		case 2:
-			pilha.desempilhar();
+			pilha.Desempilha();
 			break;
 		case 3:
 			System.out.println("\t\nTopo/Último da Pilha Encadeada="+pilha.topo());
 			break;
 		case 4:
-			System.out.println("\t\nTamanho=\t"+pilha.tamanho());
+			System.out.println("\t\nTamanho=\t"+pilha.Listar().size());
 			break;
 		case 5:
-			System.out.println("\t\nObtém primeiro=\t"+pilha.obtemPrimeiro());
+			System.out.println("\t\nObtém primeiro=\t"+pilha.obtemPrimeiroElemento());
+			break;
+		case 6:
+			System.out.println("\t\nListar tudo=\t"+pilha.Listar());
 			break;
 		default:
-			System.out.println("De 1 a 5 somente!");
+			System.out.println("De 1 a 6 somente!");
 			break;
 		}
 	}
@@ -73,17 +78,23 @@ public class Deque {
 				+ "\n\t4-Remover Fim\n\t5-Varrer pilha"
 				+ "\n\t6-Obter Primeiro \n\t7-Obter Último");
 	}
-
+	private static void escolhaOperacoesPilhaEncadeada() {
+		System.out.println(
+				"\tDigite a operação:\n\t1-Inserir pilha encadeada"
+				+ "\n\t2-Desempilhar\n\t3-Topo"
+				+ "\n\t4-Tamanho\n\t5-Obtem Primeiro"
+				+ "\n\t6-Listar ");
+	}
 	private void escolheOperacoesSequenciais(Deque d, Scanner sc) {
 		int op = sc.nextInt();
 		switch (op) {
 		case 1:
 			System.out.println("\t\n Inserir no início do Deque\n");
-			d.inserirInicio(sc.next().charAt(0));
+			d.inserirInicio(sc.next());
 			break;
 		case 2:
 			System.out.println("\t\n Inserir no fim do Deque\n");
-			d.inserirFim(sc.next().charAt(0));
+			d.inserirFim(sc.next());
 			break;
 		case 3:
 			System.out.println("\t\nRemove Início");
@@ -112,18 +123,18 @@ public class Deque {
 	}
 
 	public void imprimePilha() {
-		for (Character c : elementos) {
+		for (String c : elementos) {
 			if (c != null)
 				System.out.println(c);
 		}
 	}
 
-	public void inserirInicio(Character valor) {
+	public void inserirInicio(String valor) {
 		elementos[n] = valor;
 		n++;
 	}
 
-	public void inserirFim(Character valor) {
+	public void inserirFim(String valor) {
 		if (elementos != null && elementos.length > 0) {
 			int indiceFinal = 0;
 			for (int i = 0; i < elementos.length; i++) {
@@ -134,9 +145,9 @@ public class Deque {
 		}
 	}
 
-	public char removeInicio() {
+	public String removeInicio() {
 		n--;
-		elementos[n] = '\0';
+		elementos[n] = "\0";
 		return elementos[n];
 
 	}
@@ -149,7 +160,7 @@ public class Deque {
 					indiceFinal = i;
 			}
 		}
-		elementos[indiceFinal] = '\0';
+		elementos[indiceFinal] = "\0";
 	}
 
 	/**
@@ -157,12 +168,12 @@ public class Deque {
 	 * 
 	 * @return
 	 */
-	public char topo() {
+	public String topo() {
 		if (elementos[n] != null)
 			return elementos[n];
 		if (elementos[n - 1] != null)
 			return elementos[n - 1];
-		return 0;
+		return "";
 	}
 
 	/**
@@ -170,7 +181,7 @@ public class Deque {
 	 * 
 	 * @return
 	 */
-	public Character ultimo() {
+	public String ultimo() {
 		int indiceFinal = 0;
 		if (elementos != null && elementos.length > 0) {
 			for (int i = 0; i < elementos.length; i++) {

@@ -31,7 +31,7 @@ public class PilhaEncadeada {
 
 	public Character obtemPrimeiro() {
 		for (int i = N; i >= 1; i--) {
-			if (i == N)
+			if (i == 1)
 				return inicio.valor;
 		}
 		return 65;
