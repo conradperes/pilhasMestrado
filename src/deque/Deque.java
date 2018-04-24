@@ -2,8 +2,9 @@ package deque;
 
 import java.util.Scanner;
 
-import exemplo.Pilha;
 import fila.Fila;
+import pilhaEncadeada.EmptyStackException;
+import pilhaEncadeada.Pilha;
 
 public class Deque {
 
@@ -11,8 +12,16 @@ public class Deque {
 	private static final int PILHA_SEQUENCIAL = 1;
 	private String elementos[];
 	private Deque proximo;
-	private static final int MAX = 100000;
+	private static final int MAX = 10;
 	private int n;
+
+	public String[] getElementos() {
+		return elementos;
+	}
+
+	public void setElementos(String[] elementos) {
+		this.elementos = elementos;
+	}
 
 	public Deque() {
 		super();
@@ -149,7 +158,7 @@ public class Deque {
 		fila2.exibirFila();
 		System.out.println("Copiando elementos da Fila para Pilha");
 		this.elementos = fila1.getFila();
-		//System.out.println("Imprimindo Pilha!");
+		// System.out.println("Imprimindo Pilha!");
 		// imprimePilha();
 		// fila1.setFila(elementos);
 		// fila2.setFila(elementos);
@@ -211,6 +220,44 @@ public class Deque {
 			}
 		}
 		return elementos[indiceFinal];
+	}
+
+	/**
+	 * Algoritmo da questão 4 com 1 Pilha e uma Fila que inverte a ordem dos seus
+	 * elementos - letra a
+	 * 
+	 * @param pilha
+	 *            Pilha que será usada como parâmetro para a inversão de elementos
+	 * @param fila
+	 *            Fila que servirá de estrutura auxiliar para inverter os elementos
+	 * @return Array de Strings com os elementos invertidos
+	 * @throws EmptyStackException
+	 */
+	public String[] inverteElementos(Deque pilha, Fila fila) throws EmptyStackException {
+		String elementosAuxiliares[] = pilha.elementos;
+		for (int i = elementosAuxiliares.length - 1; i >= 0; i--) {
+			fila.inserirNaFila(elementosAuxiliares[i]);
+		}
+		return fila.getFila();
+	}
+
+	/**
+	 * Algoritmo da questão 4 com 2 Pilhas que inverte a ordem dos seus elementos -
+	 * letra b
+	 * 
+	 * @param pilha
+	 *            Pilha que será usada como parâmetro para a inversão de elementos
+	 * @param pilha2
+	 *            Pilha que servirá de estrutura auxiliar para inverter os elementos
+	 * @return Array de Strings com os elementos invertidos
+	 * @throws EmptyStackException
+	 */
+	public String[] inverteElementos(Deque pilha, Deque pilha2) throws EmptyStackException {
+		String elementosAuxiliares[] = pilha.elementos;
+		for (int i = elementosAuxiliares.length - 1; i >= 0; i--) {
+			pilha2.inserirInicio(elementosAuxiliares[i]);
+		}
+		return pilha2.getElementos();
 	}
 
 }
