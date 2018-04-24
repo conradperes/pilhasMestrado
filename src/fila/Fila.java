@@ -8,8 +8,16 @@ public class Fila {
 	int extensaoFila = 0;
 	String fila[] = new String[NUMERO_MAXIMO_FILA];
 
+	public String[] getFila() {
+		return fila;
+	}
+
+	public void setFila(String[] fila) {
+		this.fila = fila;
+	}
+
 	/**
-	 *  Método para Inserir elementos na Fila
+	 *  Mï¿½todo para Inserir elementos na Fila
 	 * @param elemento
 	 */
 	public void inserirNaFila(String elemento) {
@@ -23,7 +31,7 @@ public class Fila {
 	}
 
 	/**
-	 *  Método para Remover elementos da Fila
+	 *  Mï¿½todo para Remover elementos da Fila
 	 */
 	public void removerDaFila() {
 
@@ -43,7 +51,7 @@ public class Fila {
 	}
 
 	/**
-	 *  Método para Exibir elementos da Fila
+	 *  Mï¿½todo para Exibir elementos da Fila
 	 */
 	public void exibirFila() {
 		System.out.print("Fila: ");
@@ -53,7 +61,7 @@ public class Fila {
 	}
 
 	/**
-	 *  Método para Retirar todos elementos da Fila
+	 *  Mï¿½todo para Retirar todos elementos da Fila
 	 */
 	public void LimparFila() {
 		System.out.println("Fila Limpa!");
@@ -61,7 +69,7 @@ public class Fila {
 	}
 
 	/**
-	 *  Método Gerenciador da Fila
+	 *  Mï¿½todo Gerenciador da Fila
 	 * @param fila
 	 */
 	public void play(Fila fila) {
@@ -73,7 +81,7 @@ public class Fila {
 		}
 	}
 	/**
-	 * Menu de opções da Fila
+	 * Menu de opï¿½ï¿½es da Fila
 	 */
 	private void menuFila() {
 		System.out.println("\n======= MENU  FILA =======");
@@ -85,7 +93,7 @@ public class Fila {
 		System.out.println("============================");
 	}
 	/**
-	 * Método que executa as opções 
+	 * Mï¿½todo que executa as opï¿½ï¿½es 
 	 * do menu
 	 * @param sc
 	 * @param fila
@@ -114,7 +122,7 @@ public class Fila {
 		}
 	}
 	/**
-	 * Execução da Fila em si
+	 * Execuï¿½ï¿½o da Fila em si
 	 * @param args
 	 */
 	public static void main(String[] args) {

@@ -1,25 +1,24 @@
 package deque;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
+import static org.junit.Assert.*;
 import java.util.Scanner;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import fila.Fila;
 import pilhaEncadeada.EmptyStackException;
 
-class DequeTest {
+public class DequeTest {
 	Deque d = new Deque();
 	private Scanner sc;
 
 	@Test
-	void testInserirInicio() {
+	public void testInserirInicio() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testInserirUsandoFila() {
+	public void testInserirUsandoFila() {
 		sc = new Scanner(System.in);
 		Fila fila1 = new Fila();
 		Fila fila2 = new Fila();
@@ -36,7 +35,7 @@ class DequeTest {
 	}
 
 	//@Test
-	void testInverteElementosLetraA() {
+	public void testInverteElementosLetraA() {
 		// sc = new Scanner(System.in);
 		// int i=0;
 		// while(sc.hasNext()) {
@@ -57,7 +56,7 @@ class DequeTest {
 	}
 	
 	@Test
-	void testInverteElementosLetraB() {
+	public void testInverteElementosLetraB() {
 		// sc = new Scanner(System.in);
 		// int i=0;
 		// while(sc.hasNext()) {
@@ -77,32 +76,32 @@ class DequeTest {
 		}
 	}
 	@Test
-	void testImprimePilha() {
+	public void testImprimePilha() {
 		d.imprimePilha();
 	}
 
 	@Test
-	void testInserirFim() {
+	public void testInserirFim() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testRemoveInicio() {
+	public void testRemoveInicio() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testRemoveFim() {
+	public void testRemoveFim() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testTopo() {
+	public void testTopo() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testUltimo() {
+	public void testUltimo() {
 		fail("Not yet implemented");
 	}
 

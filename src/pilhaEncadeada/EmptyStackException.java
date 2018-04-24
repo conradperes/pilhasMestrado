@@ -1,4 +1,4 @@
-package exemplo;
+package pilhaEncadeada;
 
 public class EmptyStackException extends NullPointerException {
 	public EmptyStackException() {

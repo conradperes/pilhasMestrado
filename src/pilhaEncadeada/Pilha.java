@@ -1,4 +1,4 @@
-package exemplo;
+package pilhaEncadeada;
 
 import java.util.ArrayList;
 public class Pilha {
