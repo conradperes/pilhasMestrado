@@ -282,6 +282,18 @@ public class Deque {
 		 }
 		return pilha.getElementos();
 	}
+	/**
+	 * Algoritmo recursivo de inversão de elementos:
+	 * Quando o índice for maior ou igual ao tamanho do vetor, retornará o vetor
+	 * caso contrário a valor auxiliar recebe o elemento passado por parâmetro,
+	 * a posição correspondente ao índice passado por parâmetro recebe o último elemento,
+	 * trocando assim de posição, e o último recebe o auxiliar, ou seja, o índice atual, então
+	 * isso acontece recursivamente até que o índice seja zero e o tamanho do vetor seja zero
+	 * @param v Vetor de Strings a ser invertido
+	 * @param indice indice a percorrer
+	 * @param tamanho tamanho máximo do vetor em questão
+	 * @return Array de Strings invertido
+	 */
 	public static String[] inverte(String[] v, int indice, int tamanho) {
 		String aux;
 		if (indice >= tamanho) {
@@ -292,6 +304,25 @@ public class Deque {
 			v[tamanho] = aux;
 			return inverte(v, indice + 1, tamanho - 1);
 		}
+	}
+	
+	/**
+	 * Algoritmo da questão 5  com 2 Filas que inverte a ordem dos seus
+	 * elementos - letra b
+	 * 
+	 * @param fila
+	 *            Fila que será usada como par�metro para a invers�o de elementos
+	 * @param fila2
+	 *            Fila que servirá de estrutura auxiliar para inverter os elementos
+	 * @return Array de Strings com os elementos invertidos
+	 * @throws EmptyStackException
+	 */
+	public String[] inverteElementos(Fila fila, Fila fila2) throws EmptyStackException {
+		String elementosAuxiliares[] = fila.getFila();
+		for (int i = elementosAuxiliares.length - 1; i >= 0; i--) {
+			fila2.inserirNaFila(elementosAuxiliares[i]);
+		}
+		return fila2.getFila();
 	}
 
 }
