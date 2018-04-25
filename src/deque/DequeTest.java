@@ -55,18 +55,25 @@ public class DequeTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testInverteElementosLetraB() {
-		// sc = new Scanner(System.in);
-		// int i=0;
-		// while(sc.hasNext()) {
-		// d.inserirInicio(sc.next());
-		// if(i==5)break;
-		// i++;
-		// }
 		try {
 			testInserirUsandoFila();
 			String[] inverteElementos = d.inverteElementos(d, new Deque());
+			System.out.println("Elementos Invertidos:");
+			for (String elemento : inverteElementos) {
+				System.out.println(elemento);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testInverteElementosLetraC() {
+		try {
+			testInserirUsandoFila();
+			String[] inverteElementos = d.inverteElementos(d);
 			System.out.println("Elementos Invertidos:");
 			for (String elemento : inverteElementos) {
 				System.out.println(elemento);
