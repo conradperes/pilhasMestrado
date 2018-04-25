@@ -268,7 +268,20 @@ public class Deque {
 		// }
 		return elementosInvertidos;
 	}
-
+	/**
+	 * Questão 5 letra a
+	 * @param fila
+	 * @param pilha
+	 * @return
+	 * @throws EmptyStackException
+	 */
+	public String[] inverteElementos(Fila fila, Deque pilha) throws EmptyStackException {
+		String elementosAuxiliares[] = fila.getFila();
+		for (int i = elementosAuxiliares.length - 1; i >= 0; i--) {
+		 pilha.inserirInicio(elementosAuxiliares[i]);
+		 }
+		return pilha.getElementos();
+	}
 	public static String[] inverte(String[] v, int indice, int tamanho) {
 		String aux;
 		if (indice >= tamanho) {

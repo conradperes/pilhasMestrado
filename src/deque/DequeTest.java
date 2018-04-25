@@ -11,15 +11,23 @@ import pilhaEncadeada.EmptyStackException;
 public class DequeTest {
 	Deque d = new Deque();
 	private Scanner sc;
+	
+	
 
-	@Test
+	public DequeTest() {
+		super();
+		sc = new Scanner(System.in);
+		// TODO Auto-generated constructor stub
+	}
+
+	//@Test
 	public void testInserirInicio() {
 		fail("Not yet implemented");
 	}
 
-	@Test
+	//@Test
 	public void testInserirUsandoFila() {
-		sc = new Scanner(System.in);
+		
 		Fila fila1 = new Fila();
 		Fila fila2 = new Fila();
 		int i = 0;
@@ -32,6 +40,20 @@ public class DequeTest {
 		}
 		testImprimePilha();
 
+	}
+	
+	
+	public Fila inserirFila() {
+		Fila fila1 = new Fila();
+		int i = 0;
+		while (sc.hasNext()) {
+			fila1.inserirNaFila(sc.next());
+			i++;
+			if (i == 10)
+				break;
+			
+		}
+		return fila1;
 	}
 
 	//@Test
@@ -69,11 +91,24 @@ public class DequeTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testInverteElementosLetraC() {
 		try {
 			testInserirUsandoFila();
 			String[] inverteElementos = d.inverteElementos(d);
+			System.out.println("Elementos Invertidos:");
+			for (String elemento : inverteElementos) {
+				System.out.println(elemento);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void testInverteElementosQuestao5LetraA() {
+		try {
+			Fila fila=inserirFila();
+			String[] inverteElementos = d.inverteElementos(fila, new Deque());
 			System.out.println("Elementos Invertidos:");
 			for (String elemento : inverteElementos) {
 				System.out.println(elemento);
