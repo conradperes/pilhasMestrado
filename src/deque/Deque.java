@@ -64,13 +64,13 @@ public class Deque {
 			pilha.Desempilha();
 			break;
 		case 3:
-			System.out.println("\t\nTopo/Último da Pilha Encadeada=" + pilha.topo());
+			System.out.println("\t\nTopo/ï¿½ltimo da Pilha Encadeada=" + pilha.topo());
 			break;
 		case 4:
 			System.out.println("\t\nTamanho=\t" + pilha.Listar().size());
 			break;
 		case 5:
-			System.out.println("\t\nObtém primeiro=\t" + pilha.obtemPrimeiroElemento());
+			System.out.println("\t\nObtï¿½m primeiro=\t" + pilha.obtemPrimeiroElemento());
 			break;
 		case 6:
 			System.out.println("\t\nListar tudo=\t" + pilha.Listar());
@@ -82,12 +82,12 @@ public class Deque {
 	}
 
 	private static void menuPilhaSequencial() {
-		System.out.println("\tDigite a operação:\n\t1-Inserir Inicio" + "\n\t2-Inserir no fim\n\t3-Remover InÃ­cio"
+		System.out.println("\tDigite a operaï¿½ï¿½o:\n\t1-Inserir Inicio" + "\n\t2-Inserir no fim\n\t3-Remover InÃ­cio"
 				+ "\n\t4-Remover Fim\n\t5-Varrer pilha" + "\n\t6-Obter Primeiro \n\t7-Obter Ãšltimo");
 	}
 
 	private static void menuPilhaEncadeada() {
-		System.out.println("\tDigite a operação:\n\t1-Inserir pilha encadeada" + "\n\t2-Desempilhar\n\t3-Topo"
+		System.out.println("\tDigite a operaï¿½ï¿½o:\n\t1-Inserir pilha encadeada" + "\n\t2-Desempilhar\n\t3-Topo"
 				+ "\n\t4-Tamanho\n\t5-Obtem Primeiro" + "\n\t6-Listar ");
 	}
 
@@ -141,7 +141,7 @@ public class Deque {
 	}
 
 	/**
-	 * Questão 2 que insere elementos na Pilha utilizando duas filas como estruturas
+	 * Questï¿½o 2 que insere elementos na Pilha utilizando duas filas como estruturas
 	 * auxiliares
 	 * 
 	 * @param fila1
@@ -223,13 +223,13 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo da questão 4 com 1 Pilha e uma Fila que inverte a ordem dos seus
+	 * Algoritmo da questï¿½o 4 com 1 Pilha e uma Fila que inverte a ordem dos seus
 	 * elementos - letra a
 	 * 
 	 * @param pilha
-	 *            Pilha que será usada como parâmetro para a inversão de elementos
+	 *            Pilha que serï¿½ usada como parï¿½metro para a inversï¿½o de elementos
 	 * @param fila
-	 *            Fila que servirá de estrutura auxiliar para inverter os elementos
+	 *            Fila que servirï¿½ de estrutura auxiliar para inverter os elementos
 	 * @return Array de Strings com os elementos invertidos
 	 * @throws EmptyStackException
 	 */
@@ -242,13 +242,13 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo da questão 4 com 2 Pilhas que inverte a ordem dos seus elementos -
+	 * Algoritmo da questï¿½o 4 com 2 Pilhas que inverte a ordem dos seus elementos -
 	 * letra b
 	 * 
 	 * @param pilha
-	 *            Pilha que será usada como parâmetro para a inversão de elementos
+	 *            Pilha que serï¿½ usada como parï¿½metro para a inversï¿½o de elementos
 	 * @param pilha2
-	 *            Pilha que servirá de estrutura auxiliar para inverter os elementos
+	 *            Pilha que servirï¿½ de estrutura auxiliar para inverter os elementos
 	 * @return Array de Strings com os elementos invertidos
 	 * @throws EmptyStackException
 	 */
@@ -258,6 +258,27 @@ public class Deque {
 			pilha2.inserirInicio(elementosAuxiliares[i]);
 		}
 		return pilha2.getElementos();
+	}
+
+	public String[] inverteElementos(Deque pilha) throws EmptyStackException {
+		// String elementosAuxiliares[] = pilha.elementos;
+		String elementosInvertidos[] = inverte(pilha.elementos, 0, pilha.elementos.length - 1);
+		// for (int i = elementosAuxiliares.length - 1; i >= 0; i--) {
+		// elementosInvertidos[i] = (elementosAuxiliares[i]);
+		// }
+		return elementosInvertidos;
+	}
+
+	public static String[] inverte(String[] v, int indice, int tamanho) {
+		String aux;
+		if (indice >= tamanho) {
+			return v;
+		} else {
+			aux = v[indice];
+			v[indice] = v[tamanho];
+			v[tamanho] = aux;
+			return inverte(v, indice + 1, tamanho - 1);
+		}
 	}
 
 }
