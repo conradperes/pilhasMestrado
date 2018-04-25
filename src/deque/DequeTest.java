@@ -104,11 +104,24 @@ public class DequeTest {
 			e.printStackTrace();
 		}
 	}
-	@Test
+	//@Test
 	public void testInverteElementosQuestao5LetraA() {
 		try {
 			Fila fila=inserirFila();
 			String[] inverteElementos = d.inverteElementos(fila, new Deque());
+			System.out.println("Elementos Invertidos:");
+			for (String elemento : inverteElementos) {
+				System.out.println(elemento);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void testInverteElementosQuestao5LetraB() {
+		try {
+			Fila fila=inserirFila();
+			String[] inverteElementos = d.inverteElementos(fila, new Fila());
 			System.out.println("Elementos Invertidos:");
 			for (String elemento : inverteElementos) {
 				System.out.println(elemento);
