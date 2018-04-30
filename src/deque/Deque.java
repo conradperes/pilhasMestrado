@@ -13,7 +13,7 @@ public class Deque {
 	private String elementos[];
 	private Deque proximo;
 	private static final int MAX = 10;
-	private int n;
+	private int contador;
 
 	public String[] getElementos() {
 		return elementos;
@@ -22,10 +22,19 @@ public class Deque {
 	public void setElementos(String[] elementos) {
 		this.elementos = elementos;
 	}
+	
+
+	public int getContador() {
+		return contador;
+	}
+
+	public void setContador(int contador) {
+		this.contador = contador;
+	}
 
 	public Deque() {
 		super();
-		n = 0;
+		contador = 0;
 		elementos = new String[MAX];
 	}
 
@@ -136,8 +145,8 @@ public class Deque {
 	}
 
 	public void inserirInicio(String valor) {
-		elementos[n] = valor;
-		n++;
+		elementos[contador] = valor;
+		contador++;
 	}
 
 	/**
@@ -176,9 +185,9 @@ public class Deque {
 	}
 
 	public String removeInicio() {
-		n--;
-		elementos[n] = "\0";
-		return elementos[n];
+		contador--;
+		elementos[contador] = "\0";
+		return elementos[contador];
 
 	}
 
@@ -199,10 +208,10 @@ public class Deque {
 	 * @return
 	 */
 	public String topo() {
-		if (elementos[n] != null)
-			return elementos[n];
-		if (elementos[n - 1] != null)
-			return elementos[n - 1];
+		if (elementos[contador] != null)
+			return elementos[contador];
+		if (elementos[contador - 1] != null)
+			return elementos[contador - 1];
 		return "";
 	}
 
@@ -284,10 +293,11 @@ public class Deque {
 	}
 	/**
 	 * Algoritmo recursivo de inversão de elementos:
-	 * Quando o índice for maior ou igual ao tamanho do vetor, retornará o vetor
-	 * caso contrário a valor auxiliar recebe o elemento passado por parâmetro,
-	 * a posição correspondente ao índice passado por parâmetro recebe o último elemento,
-	 * trocando assim de posição, e o último recebe o auxiliar, ou seja, o índice atual, então
+	 * 1-Quando o índice for maior ou igual ao tamanho do vetor,  then retornará o vetor
+	 * 2-caso contrário a valor auxiliar recebe o elemento passado por parâmetro,
+	 * 3-A posição correspondente ao índice passado por parâmetro recebe o último elemento,
+	 * trocando assim de posição,
+	 * 4- E o último recebe o auxiliar, ou seja, o índice atual, então
 	 * isso acontece recursivamente até que o índice seja zero e o tamanho do vetor seja zero
 	 * @param v Vetor de Strings a ser invertido
 	 * @param indice indice a percorrer
