@@ -1,12 +1,8 @@
 package deque;
 
-import static org.junit.Assert.*;
-
 import java.util.Scanner;
 
 import org.junit.Test;
-
-import fila.Fila;
 
 public class PilhaMinTest {
 	PilhaMin pilhaMin = new PilhaMin();
