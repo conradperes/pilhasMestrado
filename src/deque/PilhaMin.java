@@ -2,24 +2,19 @@ package deque;
 
 public class PilhaMin extends Deque {
 
-	
-	
-	
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	public String retornaElementoComMenorChave(Deque pilha) {
-		String []elementos = pilha.getElementos();
-		int aux;
+		String[] elementos = pilha.getElementos();
+		int indiceComMenorChave = 0;
+		int maiorContagem=pilha.getContador();
 		for (int i = 0; i < elementos.length; i++) {
-			aux =i;
-			elementos[i]=""+elementos.length;
-			elementos[elementos.length]=""+aux;
-			
+			if(i<maiorContagem)
+				indiceComMenorChave=i;
 		}
-		return elementos[0];
+		return elementos[indiceComMenorChave];
 	}
 }
