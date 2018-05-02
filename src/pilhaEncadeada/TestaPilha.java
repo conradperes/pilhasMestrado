@@ -1,4 +1,4 @@
-package exemplo;
+package pilhaEncadeada;
 
 import java.util.ArrayList;
 import java.util.Scanner;
