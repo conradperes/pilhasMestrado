@@ -7,6 +7,7 @@ import org.junit.Test;
 public class PilhaMinTest {
 	Deque pilhaBase;
 	private Scanner sc;
+	PilhaMin min ;
 
 	public PilhaMinTest() {
 		super();
@@ -19,7 +20,7 @@ public class PilhaMinTest {
 		while (sc.hasNext()) {
 			pilhaBase.inserirInicio(sc.next());
 			i++;
-			if (i == 10)
+			if (i == 5)
 				break;
 
 		}
@@ -27,23 +28,25 @@ public class PilhaMinTest {
 	}
 
 	@Test
-	public void testRetornaElementoComMenorChave() {
+	public String testRetornaMenorElemento() {
+		String menorElemento ="";
 		try {
 			new PilhaMinTest();
 			pilhaBase = inserirPilhaMin();
-			PilhaMin min = new PilhaMin();
+			min = new PilhaMin();
 			for (String elemento : pilhaBase.getElementos()) {
 				if(elemento!=null)
 					min.queue(elemento);
 			}
-			String menorElemento = min.retornaElementoComMenorChave(min.getPilha());
+			menorElemento = min.retornaElementoComMenorChave(min.getPilha());
 			System.out.println("Retorna menor elemento:");
 			System.out.println(menorElemento);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			pilhaBase.desempilha();
+			//pilhaBase.desempilha();
 		}
+		return menorElemento;
 	}
 
 }

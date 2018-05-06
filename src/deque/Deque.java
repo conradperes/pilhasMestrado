@@ -112,7 +112,7 @@ public class Deque {
 			break;
 		case 3:
 			System.out.println("\t\nRemove Início");
-			d.removeInicio();
+			d.removeTopo();
 			break;
 		case 4:
 			System.out.println("\t\nRemove Fim");
@@ -183,7 +183,7 @@ public class Deque {
 		}
 	}
 
-	public String removeInicio() {
+	public String removeTopo() {
 		contador--;
 		elementos[contador] = "\0";
 		return elementos[contador];
@@ -303,20 +303,18 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo recursivo de inversão de elementos: 1-Quando o índice for maior ou
-	 * igual ao tamanho do vetor, then retornará o vetor 2-caso contrário a valor
-	 * auxiliar recebe o elemento passado por parâmetro, 3-A posição correspondente
-	 * ao índice passado por parâmetro recebe o último elemento, trocando assim de
-	 * posição, 4- E o último recebe o auxiliar, ou seja, o índice atual, então isso
-	 * acontece recursivamente até que o índice seja zero e o tamanho do vetor seja
-	 * zero
+	 * Algoritmo recursivo de inversão de elementos: 
 	 * 
-	 * @param v
-	 *            Vetor de Strings a ser invertido
-	 * @param indice
-	 *            indice a percorrer
-	 * @param tamanho
-	 *            tamanho máximo do vetor em questão
+	 * 1-Quando o índice for maior ou igual ao tamanho do vetor, then retornará o vetor 
+	 * 2-caso contrário a valor auxiliar recebe o elemento passado por parâmetro
+	 * 3-A posição correspondente ao índice passado por parâmetro recebe o 
+	 * último elemento, trocando assim de posição
+	 * 4- E o último recebe o auxiliar, ou seja, o índice atual, então isso
+	 * acontece recursivamente até que o índice seja zero e o tamanho do vetor seja zero
+	 *
+	 * @param v Vetor de Strings a ser invertido
+	 * @param indice indice a percorrer
+	 * @param tamanho tamanho máximo do vetor em questão
 	 * @return Array de Strings invertido
 	 */
 	public static String[] inverte(String[] v, int indice, int tamanho) {
