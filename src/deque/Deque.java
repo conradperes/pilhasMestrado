@@ -12,7 +12,7 @@ public class Deque {
 	private static final int PILHA_SEQUENCIAL = 1;
 	private String elementos[];
 	private Deque proximo;
-	private static final int MAX = 10;
+	private static final int MAX = 11;
 	private int contador;
 
 	public String[] getElementos() {
@@ -22,7 +22,6 @@ public class Deque {
 	public void setElementos(String[] elementos) {
 		this.elementos = elementos;
 	}
-	
 
 	public int getContador() {
 		return contador;
@@ -70,7 +69,7 @@ public class Deque {
 			pilha.empilha(sc.next());
 			break;
 		case 2:
-			pilha.Desempilha();
+			pilha.desempilha();
 			break;
 		case 3:
 			System.out.println("\t\nTopo/�ltimo da Pilha Encadeada=" + pilha.topo());
@@ -191,6 +190,13 @@ public class Deque {
 
 	}
 
+	public void desempilha() {
+		for (int i = elementos.length; i >= 0; i--) {
+			elementos[contador] = "\0";
+			contador--;
+		}
+	}
+
 	public void removeFim() {
 		int indiceFinal = 0;
 		if (elementos != null && elementos.length > 0) {
@@ -208,6 +214,8 @@ public class Deque {
 	 * @return
 	 */
 	public String topo() {
+		if(elementos[0]==null)
+			return "";
 		if (elementos[contador] != null)
 			return elementos[contador];
 		if (elementos[contador - 1] != null)
@@ -277,8 +285,10 @@ public class Deque {
 		// }
 		return elementosInvertidos;
 	}
+
 	/**
 	 * Questão 5 letra a
+	 * 
 	 * @param fila
 	 * @param pilha
 	 * @return
@@ -287,21 +297,26 @@ public class Deque {
 	public String[] inverteElementos(Fila fila, Deque pilha) throws EmptyStackException {
 		String elementosAuxiliares[] = fila.getFila();
 		for (int i = elementosAuxiliares.length - 1; i >= 0; i--) {
-		 pilha.inserirInicio(elementosAuxiliares[i]);
-		 }
+			pilha.inserirInicio(elementosAuxiliares[i]);
+		}
 		return pilha.getElementos();
 	}
+
 	/**
-	 * Algoritmo recursivo de inversão de elementos:
-	 * 1-Quando o índice for maior ou igual ao tamanho do vetor,  then retornará o vetor
-	 * 2-caso contrário a valor auxiliar recebe o elemento passado por parâmetro,
-	 * 3-A posição correspondente ao índice passado por parâmetro recebe o último elemento,
-	 * trocando assim de posição,
-	 * 4- E o último recebe o auxiliar, ou seja, o índice atual, então
-	 * isso acontece recursivamente até que o índice seja zero e o tamanho do vetor seja zero
-	 * @param v Vetor de Strings a ser invertido
-	 * @param indice indice a percorrer
-	 * @param tamanho tamanho máximo do vetor em questão
+	 * Algoritmo recursivo de inversão de elementos: 1-Quando o índice for maior ou
+	 * igual ao tamanho do vetor, then retornará o vetor 2-caso contrário a valor
+	 * auxiliar recebe o elemento passado por parâmetro, 3-A posição correspondente
+	 * ao índice passado por parâmetro recebe o último elemento, trocando assim de
+	 * posição, 4- E o último recebe o auxiliar, ou seja, o índice atual, então isso
+	 * acontece recursivamente até que o índice seja zero e o tamanho do vetor seja
+	 * zero
+	 * 
+	 * @param v
+	 *            Vetor de Strings a ser invertido
+	 * @param indice
+	 *            indice a percorrer
+	 * @param tamanho
+	 *            tamanho máximo do vetor em questão
 	 * @return Array de Strings invertido
 	 */
 	public static String[] inverte(String[] v, int indice, int tamanho) {
@@ -315,10 +330,10 @@ public class Deque {
 			return inverte(v, indice + 1, tamanho - 1);
 		}
 	}
-	
+
 	/**
-	 * Algoritmo da questão 5  com 2 Filas que inverte a ordem dos seus
-	 * elementos - letra b
+	 * Algoritmo da questão 5 com 2 Filas que inverte a ordem dos seus elementos -
+	 * letra b
 	 * 
 	 * @param fila
 	 *            Fila que será usada como par�metro para a invers�o de elementos
