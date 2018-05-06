@@ -5,35 +5,44 @@ import java.util.Scanner;
 import org.junit.Test;
 
 public class PilhaMinTest {
-	PilhaMin pilhaMin = new PilhaMin();
+	Deque pilhaBase;
 	private Scanner sc;
 
 	public PilhaMinTest() {
 		super();
 		sc = new Scanner(System.in);
+		pilhaBase = new Deque();
 	}
-	public PilhaMin inserirPilhaMin() {
+
+	public Deque inserirPilhaMin() {
 		int i = 0;
 		while (sc.hasNext()) {
-			pilhaMin.inserirInicio(sc.next());
+			pilhaBase.inserirInicio(sc.next());
 			i++;
 			if (i == 10)
 				break;
-			
+
 		}
-		return pilhaMin;
+		return pilhaBase;
 	}
+
 	@Test
 	public void testRetornaElementoComMenorChave() {
 		try {
-			PilhaMin min= inserirPilhaMin();
-			String[] elementos = min.getElementos();
-			min.setElementos(min.inverte(elementos,0 , elementos.length-1));//inverte para checar se retorna o menor
-			String menorChave = pilhaMin.retornaElementoComMenorChave(min);
-			System.out.println("Retorna elemento com menor chave:");
-			System.out.println(menorChave);
+			new PilhaMinTest();
+			pilhaBase = inserirPilhaMin();
+			PilhaMin min = new PilhaMin();
+			for (String elemento : pilhaBase.getElementos()) {
+				if(elemento!=null)
+					min.queue(elemento);
+			}
+			String menorElemento = min.retornaElementoComMenorChave(min.getPilha());
+			System.out.println("Retorna menor elemento:");
+			System.out.println(menorElemento);
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			pilhaBase.desempilha();
 		}
 	}
 
