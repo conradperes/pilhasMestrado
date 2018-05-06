@@ -70,7 +70,7 @@ public class Deque {
 			pilha.empilha(sc.next());
 			break;
 		case 2:
-			pilha.Desempilha();
+			pilha.desempilha();
 			break;
 		case 3:
 			System.out.println("\t\nTopo/�ltimo da Pilha Encadeada=" + pilha.topo());

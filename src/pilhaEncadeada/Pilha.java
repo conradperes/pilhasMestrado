@@ -1,7 +1,6 @@
 package pilhaEncadeada;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Pilha {
 	// Variavel para definição do topo da pilha.
@@ -16,7 +15,7 @@ public class Pilha {
 	}
 
 	// Método para desempilhar valores
-	public String Desempilha() throws EmptyStackException {
+	public String desempilha() throws EmptyStackException {
 		if (topo == null) {
 			throw new EmptyStackException("A pilha está vazia");
 		} else {
@@ -40,13 +39,14 @@ public class Pilha {
 			return topo.getAnterior().getValor();
 	}
 
-	public String anterior(int qtde) throws EmptyStackException {
+	public String anterior(int qtde) throws Exception {
 		String elemento = null;
 		if (topo == null) {
 			throw new EmptyStackException("Pilha vazia");
 		} else {
 			for (int i = 0; i < qtde; i++)
-				elemento = topo.getAnterior().getAnterior().getAnterior().getValor();
+				if(topo.getAnterior().getAnterior().getAnterior()!=null)
+					elemento = topo.getAnterior().getAnterior().getAnterior().getValor();
 		}
 		return elemento;
 	}

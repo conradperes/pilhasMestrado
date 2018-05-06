@@ -23,7 +23,7 @@ public class TestaPilha {
 			// Desempilha um valor.
 			else if (resp.equals("2")) {
 				try {
-					System.out.println("Desempilhado valor " + pilha.Desempilha());
+					System.out.println("Desempilhado valor " + pilha.desempilha());
 				} catch (EmptyStackException e) {
 					System.out.println(e.getMessage());
 				}
