@@ -8,6 +8,7 @@ public class Fila {
 	int extensaoFila = 0;
 	String fila[] = new String[NUMERO_MAXIMO_FILA];
 
+<<<<<<< HEAD
 	public String[] getFila() {
 		return fila;
 	}
@@ -16,6 +17,8 @@ public class Fila {
 		this.fila = fila;
 	}
 
+=======
+>>>>>>> d347a8edcc2d86ec88fcaa67e757cac1035ed1fb
 	/**
 	 *  M�todo para Inserir elementos na Fila
 	 * @param elemento
@@ -130,4 +133,16 @@ public class Fila {
 		fila.play(fila);
 	}
 
+<<<<<<< HEAD
+=======
+	public String[] getFila() {
+		return fila;
+	}
+
+	public void setFila(String[] fila) {
+		this.fila = fila;
+	}
+
+	
+>>>>>>> d347a8edcc2d86ec88fcaa67e757cac1035ed1fb
 }
