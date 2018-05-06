@@ -49,17 +49,17 @@ public class CalculadoraNotacaoPolonesaReversa {
 	private void menu(int opcao) {
 		switch (opcao) {
 		case 1:
-			deque.Desempilha();
+			deque.desempilha();
 			break;
 		case 2:
 			deque.print();
 			break;
 		case 3:
-			System.exit(0);
-			break;
-		case 4:
 			System.out.println("Entre com números, Pense em uma calculadora HP:");
 			calculaNPR();
+			break;
+		case 4:
+			System.exit(0);
 			break;
 		default:
 			System.out.println("Escolha de 1 a 4");
@@ -70,8 +70,9 @@ public class CalculadoraNotacaoPolonesaReversa {
 	private void opcoes() {
 		System.out.println("1- Desempilha para realizar outras equações:");
 		System.out.println("2-Exibe pilha:");
-		System.out.println("3-Sair do sistema de Cálculo de NPR!");
-		System.out.println("4-Realizar cálculos do sistema de Cálculo de NPR!");
+		System.out.println("3-Realizar cálculos do sistema de Cálculo de NPR!");
+		System.out.println("4-Sair do sistema de Cálculo de NPR!");
+		
 	}
 
 	private boolean isDigit(final String c) {
@@ -117,7 +118,8 @@ public class CalculadoraNotacaoPolonesaReversa {
 			break;
 		}
 		// System.out.println("resultado=" + resultado);
-		deque.empilha("" + resultado);
+		//deque.empilha("" + resultado);
+		deque.desempilha();
 		return resultado;
 	}
 
