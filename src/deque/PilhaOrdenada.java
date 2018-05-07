@@ -44,17 +44,20 @@ public class PilhaOrdenada extends Pilha {
 		ordered.insere(topoAux);
 		pilhaAux.retira();
 	}
-
-//	public void ordenaElementos(Deque pilhaAux, String elemento) {
-//		String topoAux = pilhaAux.topo();
-//		String topoOrdenado = pilhaOrdenada.topo();
-//		if (topoOrdenado.isEmpty())
-//			pilhaOrdenada.inserirInicio(elemento);
-//		if (!topoAux.isEmpty() && !topoOrdenado.isEmpty()
-//				&& Integer.parseInt(topoOrdenado) <= Integer.parseInt(topoAux)) {
-//			pilhaOrdenada.inserirInicio(topoAux);
-//			pilhaAux.removeTopo();
-//		}
-//	}
+	publiv int pilhaOrdenada(Pilha p) {
+		if(p.isVazia())
+			return 0;
+		int dado, aux=0;
+		aux = Integer.parseInt(p.retira());
+		while(!p.isVazia()) {
+			dado=Integer.parseInt(p.retira());
+			if(aux<=dado)
+				aux=dado;
+			else
+				return 0;
+		}
+		return 1;
+	}
+	
 
 }
