@@ -21,9 +21,10 @@ public class MonitoradorRoteador {
 		} else if (expressao.charAt(0) == 'S') {
 			if (controle.isEmpty())
 				System.out.println("Pilha Vazia");
-			System.out.println(controle.peek());
-			System.out.println(controle.firstElement());
-			controle.pop();
+			System.out.print(controle.firstElement()+" ");
+			System.out.print(expressao.subSequence(1, expressao.length()));
+			System.out.println("");
+			controle.remove(controle.firstElement());
 		}
 	}
 

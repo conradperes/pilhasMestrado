@@ -30,7 +30,7 @@ public class MonitoradorRoteadorTest {
 				i++;
 				roteador.monitora(sc.next() + sc.next(), controle);
 				if (qtdePares == i) {
-					System.out.println("Número de pares concluído");
+					System.out.println("NÃºmero de pares concluÃ­do");
 					break;
 				}
 			}
