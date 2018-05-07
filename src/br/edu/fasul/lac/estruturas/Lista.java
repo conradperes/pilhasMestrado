@@ -215,8 +215,7 @@ public class Lista {
         No atual = primeiroNo;
 
         while (atual != null) {
-            str += atual.dados + " ";
-            lista.add(str);
+            lista.add(""+atual.dados);
             atual = atual.proximoNo;
             
         }

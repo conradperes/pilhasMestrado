@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
+import br.edu.fasul.lac.estruturas.Pilha;
+
 
 public class PilhaOrdenadaTest {
 	PilhaOrdenada pilhaAux;
@@ -25,7 +27,7 @@ public class PilhaOrdenadaTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testOrdenaElementos() {
 		try {
 			new PilhaOrdenadaTest();
@@ -42,6 +44,16 @@ public class PilhaOrdenadaTest {
 //			pilhaAux.desempilha();
 		}
 
+	}
+	
+	@Test
+	public void testPilhaOrdenada() {
+		new PilhaOrdenadaTest();
+		inserirPilhaMin();
+		PilhaOrdenada pilhaOrdenada = new PilhaOrdenada();
+		Pilha pilhaFinal = new Pilha();
+		System.out.println(pilhaOrdenada.ordenacao(pilhaAux, pilhaFinal));
+		System.out.println(pilhaFinal.toString());
 	}
 
 }
