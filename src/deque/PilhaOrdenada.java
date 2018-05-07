@@ -44,13 +44,13 @@ public class PilhaOrdenada extends Pilha {
 		ordered.insere(topoAux);
 		pilhaAux.retira();
 	}
-	publiv int pilhaOrdenada(Pilha p) {
+	public int pilhaOrdenada(Pilha p) {
 		if(p.isVazia())
 			return 0;
 		int dado, aux=0;
-		aux = Integer.parseInt(p.retira());
+		aux = Integer.parseInt(p.retira().toString());
 		while(!p.isVazia()) {
-			dado=Integer.parseInt(p.retira());
+			dado=Integer.parseInt(p.retira().toString());
 			if(aux<=dado)
 				aux=dado;
 			else
