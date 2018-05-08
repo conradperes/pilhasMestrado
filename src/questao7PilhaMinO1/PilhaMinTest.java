@@ -1,8 +1,10 @@
-package deque;
+package questao7PilhaMinO1;
 
 import java.util.Scanner;
 
 import org.junit.Test;
+
+import deque.Deque;
 
 public class PilhaMinTest {
 	Deque pilhaBase;

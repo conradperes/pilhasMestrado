@@ -1,4 +1,6 @@
-package deque;
+package questao7PilhaMinO1;
+
+import deque.Deque;
 
 public class PilhaMin extends Deque {
 

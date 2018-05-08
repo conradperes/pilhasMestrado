@@ -1,8 +1,12 @@
-package deque;
+package questao5PilhaInverteOrdem;
+
+import java.util.Stack;
 
 import br.edu.fasul.lac.estruturas.Pilha;
+import deque.Deque;
+import deque.PilhaMinAuxiliar;
 
-public class PilhaOrdenada extends Pilha {
+public class PIlhaInverteOrdem extends Pilha {
 	Pilha pilhaOrdenada;
 	String elementoInicial;
 	boolean menorPreenchido = false;
@@ -17,7 +21,7 @@ public class PilhaOrdenada extends Pilha {
 		this.elementoInicial = elementoInicial;
 	}
 
-	public PilhaOrdenada() {
+	public PIlhaInverteOrdem() {
 		super();
 		min = new Pilha();
 	}
@@ -30,19 +34,8 @@ public class PilhaOrdenada extends Pilha {
 	 * @param pilhaMin
 	 * @param pilhaAux
 	 */
-	public void queue(Pilha pilhaAux, PilhaOrdenada ordered) {
-		// String topoAux = pilhaAux.topo();
-		// if (!menorPreenchido) {
-		// pilhaOrdenada.inserirInicio(menorElemento);
-		// menorPreenchido = true;
-		// } else {
-		// String topoOrdenado = pilhaOrdenada.topo();
-		// if (!elemento.isEmpty() && !menorElemento.isEmpty()
-		// && Integer.parseInt(menorElemento) <= Integer.parseInt(elemento)) {
-		// pilhaOrdenada.inserirInicio(elemento);
-		// // pilhaAux.removeInicio();
-		// }
-		// }
+	public void queue(Pilha pilhaAux, PIlhaInverteOrdem ordered) {
+		
 		String topoAux = (String) pilhaAux.verificarFinal();
 		ordered.insere(topoAux);
 		pilhaAux.retira();
@@ -59,6 +52,29 @@ public class PilhaOrdenada extends Pilha {
 	// }
 	// }
 	// }
+	
+	public Stack ordenar(Stack pilha) {
+		Stack ordenados = new Stack<>();
+		for (int i = 0; i < pilha.size(); i++) {
+			for (int j = i+1; j < pilha.size(); j++) {
+				if(new Integer(pilha.elementAt(i).toString())>new Integer(pilha.elementAt(j).toString())) {
+					int aux = new Integer(pilha.elementAt(i).toString());
+					ordenados.insertElementAt(pilha.elementAt(j),i);
+					//ordenados.remove(i);
+				}
+			}
+		}
+		return ordenados;
+	}
+	
+	
+	/**
+	 * Algoritmo O(N) que pega os elementos de uma pilha e 
+	 * adiciona na pilha Ordenada
+	 * @param p
+	 * @param ordenada
+	 * @return
+	 */
 	public Pilha inverteOrdem(Pilha p, Pilha ordenada) {
 		if (p.isVazia())
 			return ordenada;
@@ -100,15 +116,9 @@ public class PilhaOrdenada extends Pilha {
 			return ordenada;
 		int dado, aux = 0;
 		ordenada.insere(getMenor(p));
-		//p.getPilha().removerDoInicio();
 		aux = Integer.parseInt(p.retira().toString());
-//		int i=0;
 		while (!p.isVazia()) {
 			dado = Integer.parseInt(p.retira().toString());
-//			i++;
-//			if(!p.getPilha().isVazia() && p.getPilha().listar().size()==i)
-//				ordenada.insere(p.getPilha().verificarInicio());
-//			else
 			if (aux <= dado) {
 				aux = dado;
 				ordenada.insere(aux);
@@ -118,6 +128,7 @@ public class PilhaOrdenada extends Pilha {
 		}
 		return ordenada;
 	}
+	
 
 	public void queue(String elemento) {
 		String topo ="";
