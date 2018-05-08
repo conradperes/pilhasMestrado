@@ -46,6 +46,17 @@ public class Deque {
 	}
 
 	public static void main(String[] args) {
+		menu();
+	}
+	
+	
+	
+	/**
+	 * Permite ao usuário escolher entre Pilha Sequencial ou 
+	 * Encadeada, pode ser chamado estaticamente tanto em 
+	 * Unit Test, quanto em main()
+	 */
+	private static void menu() {
 		Deque d = new Deque();
 		Pilha pilhaEncadeada = new Pilha();
 		Scanner sc = new Scanner(System.in);
@@ -72,13 +83,13 @@ public class Deque {
 			pilha.desempilha();
 			break;
 		case 3:
-			System.out.println("\t\nTopo/ï¿½ltimo da Pilha Encadeada=" + pilha.topo());
+			System.out.println("\t\nTopo/Último da Pilha Encadeada=" + pilha.topo());
 			break;
 		case 4:
 			System.out.println("\t\nTamanho=\t" + pilha.Listar().size());
 			break;
 		case 5:
-			System.out.println("\t\nObtï¿½m primeiro=\t" + pilha.obtemPrimeiroElemento());
+			System.out.println("\t\nObtém primeiro=\t" + pilha.obtemPrimeiroElemento());
 			break;
 		case 6:
 			System.out.println("\t\nListar tudo=\t" + pilha.Listar());
@@ -135,23 +146,29 @@ public class Deque {
 		}
 
 	}
-
+	/**
+	 * Complexidade O(N)
+	 */
 	public void imprimePilha() {
 		for (String c : this.elementos) {
 			if (c != null)
 				System.out.println(c);
 		}
 	}
-
+	
+	/**
+	 * Complexidade O(1)
+	 * @param valor
+	 */
 	public void inserirInicio(String valor) {
 		elementos[contador] = valor;
 		contador++;
 	}
 
 	/**
-	 * Questï¿½o 2 que insere elementos na Pilha utilizando duas filas como estruturas
-	 * auxiliares
-	 * 
+	 * Questãoo 2 que insere elementos na Pilha utilizando duas filas
+	 *  como estruturas auxiliares
+	 *  Complexidade O(1)
 	 * @param fila1
 	 *            Fila 1 auxiliar
 	 * @param fila2
@@ -171,7 +188,10 @@ public class Deque {
 		// fila1.setFila(elementos);
 		// fila2.setFila(elementos);
 	}
-
+	/**
+	 * Complexidade O(N)
+	 * @param valor
+	 */
 	public void inserirFim(String valor) {
 		if (elementos != null && elementos.length > 0) {
 			int indiceFinal = 0;
@@ -182,22 +202,31 @@ public class Deque {
 			elementos[indiceFinal + 1] = valor;
 		}
 	}
-
-
+	
+	/**
+	 * Complexidade O(1)
+	 * @return
+	 */
 	public String removeTopo() {
 		contador--;
 		elementos[contador] = "\0";
 		return elementos[contador];
 
 	}
-
+	
+	/**
+	 * Complexidade O(N)
+	 */
 	public void desempilha() {
 		for (int i = elementos.length; i >= 0; i--) {
 			elementos[contador] = "\0";
 			contador--;
 		}
 	}
-
+	
+	/**
+	 * Complexidade O(N)
+	 */
 	public void removeFim() {
 		int indiceFinal = 0;
 		if (elementos != null && elementos.length > 0) {
@@ -211,7 +240,7 @@ public class Deque {
 
 	/**
 	 * ObtÃ©m o primeiro elemento da pilha
-	 * 
+	 * Complexidade O(1)
 	 * @return
 	 */
 	public String topo() {
@@ -225,8 +254,8 @@ public class Deque {
 	}
 
 	/**
-	 * ObtÃ©m Ãºltimo elemento da pilha
-	 * 
+	 * Obtém Último elemento da pilha
+	 * complexidade O(N)
 	 * @return
 	 */
 	public String ultimo() {
@@ -241,13 +270,14 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo da questï¿½o 4 com 1 Pilha e uma Fila que inverte a ordem dos seus
+	 * Algoritmo da questão 4 com 1 Pilha e uma Fila que inverte a ordem dos seus
 	 * elementos - letra a
+	 * Complexidade O(N)
 	 * 
 	 * @param pilha
-	 *            Pilha que serï¿½ usada como parï¿½metro para a inversï¿½o de elementos
+	 *            Pilha que seá usada como parâmetro para a inversão de elementos
 	 * @param fila
-	 *            Fila que servirï¿½ de estrutura auxiliar para inverter os elementos
+	 *            Fila que servirá de estrutura auxiliar para inverter os elementos
 	 * @return Array de Strings com os elementos invertidos
 	 * @throws EmptyStackException
 	 */
@@ -260,13 +290,13 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo da questï¿½o 4 com 2 Pilhas que inverte a ordem dos seus elementos -
+	 * Algoritmo da questão 4 com 2 Pilhas que inverte a ordem dos seus elementos -
 	 * letra b
-	 * 
+	 * Complexidade O(N)
 	 * @param pilha
-	 *            Pilha que serï¿½ usada como parï¿½metro para a inversï¿½o de elementos
+	 *            Pilha que será usada como parâmetro para a inversão de elementos
 	 * @param pilha2
-	 *            Pilha que servirï¿½ de estrutura auxiliar para inverter os elementos
+	 *            Pilha que servirá de estrutura auxiliar para inverter os elementos
 	 * @return Array de Strings com os elementos invertidos
 	 * @throws EmptyStackException
 	 */
@@ -304,18 +334,18 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo recursivo de inversÃ£o de elementos: 
+	 * Algoritmo recursivo de inversão de elementos: 
 	 * 
-	 * 1-Quando o Ã­ndice for maior ou igual ao tamanho do vetor, then retornarÃ¡ o vetor 
-	 * 2-caso contrÃ¡rio a valor auxiliar recebe o elemento passado por parÃ¢metro
-	 * 3-A posiÃ§Ã£o correspondente ao Ã­ndice passado por parÃ¢metro recebe o 
-	 * Ãºltimo elemento, trocando assim de posiÃ§Ã£o
-	 * 4- E o Ãºltimo recebe o auxiliar, ou seja, o Ã­ndice atual, entÃ£o isso
-	 * acontece recursivamente atÃ© que o Ã­ndice seja zero e o tamanho do vetor seja zero
-	 *
+	 * 1-Quando o Índice for maior ou igual ao tamanho do vetor, then retornará o vetor 
+	 * 2-caso contrário a valor auxiliar recebe o elemento passado por parâmetro
+	 * 3-A posição correspondente ao Índice passado por parâmetro recebe o 
+	 * Último elemento, trocando assim de posição
+	 * 4- E o Último recebe o auxiliar, ou seja, o índice atual, então isso
+	 * acontece recursivamente até que o índice seja zero e o tamanho do vetor seja zero
+	 * Complexidade O(N)
 	 * @param v Vetor de Strings a ser invertido
-	 * @param indice indice a percorrer
-	 * @param tamanho tamanho mÃ¡ximo do vetor em questÃ£o
+	 * @param indice Índice a percorrer
+	 * @param tamanho tamanho máximo do vetor em questão
  	 */
 	public static String[] inverte(String[] v, int indice, int tamanho) {
 		String aux;
@@ -330,13 +360,13 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo da questÃ£o 5 com 2 Filas que inverte a ordem dos seus elementos -
+	 * Algoritmo da questão 5 com 2 Filas que inverte a ordem dos seus elementos -
 	 * letra b
-	 * 
+	 *  Complexidade O(N)
 	 * @param fila
-	 *            Fila que serÃ¡ usada como parï¿½metro para a inversï¿½o de elementos
+	 *            Fila que será usada como parâmetro para a inversão de elementos
 	 * @param fila2
-	 *            Fila que servirÃ¡ de estrutura auxiliar para inverter os elementos
+	 *            Fila que servirá de estrutura auxiliar para inverter os elementos
 	 * @return Array de Strings com os elementos invertidos
 	 * @throws EmptyStackException
 	 */
