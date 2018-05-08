@@ -6,7 +6,11 @@ public class Pilha {
 	// Variavel para defini√ß√£o do topo da pilha.
 	Nodo topo = null;
 
-	// M√©todo que empilha valores.
+	/**
+	 *  MÈtodo que empilha valores.
+	 *  Complexidade O(1)
+	 * @param valor
+	 */
 	public void empilha(String valor) {
 		Nodo novo = new Nodo();
 		novo.setValor(valor);
@@ -14,10 +18,15 @@ public class Pilha {
 		topo = novo;
 	}
 
-	// M√©todo para desempilhar valores
+	/**
+	 *  MÈtodo para desempilhar valores
+	 *  Complexidade O(1)
+	 * @return
+	 * @throws EmptyStackException
+	 */
 	public String desempilha() throws EmptyStackException {
 		if (topo == null) {
-			throw new EmptyStackException("A pilha est√° vazia");
+			throw new EmptyStackException("A pilha est· vazia");
 		} else {
 			String valor = topo.getValor();
 			topo = topo.getAnterior();
@@ -25,6 +34,12 @@ public class Pilha {
 		}
 	}
 
+	/**
+	 * Complexidade O(1)
+	 * 
+	 * @return
+	 * @throws EmptyStackException
+	 */
 	public String topo() throws EmptyStackException {
 		if (topo == null) {
 			throw new EmptyStackException("Pilha vazia");
@@ -32,6 +47,12 @@ public class Pilha {
 			return topo.getValor();
 	}
 
+	/**
+	 * Complexidade O(1)
+	 * 
+	 * @return
+	 * @throws EmptyStackException
+	 */
 	public String anterior() throws EmptyStackException {
 		if (topo == null) {
 			throw new EmptyStackException("Pilha vazia");
@@ -39,23 +60,36 @@ public class Pilha {
 			return topo.getAnterior().getValor();
 	}
 
+	/**
+	 * Complexidade O(N)
+	 * 
+	 * @param qtde
+	 * @return
+	 * @throws Exception
+	 */
 	public String anterior(int qtde) throws Exception {
 		String elemento = null;
 		if (topo == null) {
 			throw new EmptyStackException("Pilha vazia");
 		} else {
 			for (int i = 0; i < qtde; i++)
-				if(topo.getAnterior().getAnterior().getAnterior()!=null)
+				if (topo.getAnterior().getAnterior().getAnterior() != null)
 					elemento = topo.getAnterior().getAnterior().getAnterior().getValor();
 		}
 		return elemento;
 	}
 
-	// M√©todo para listar pilha. Percorre os n√≥s da pilha atribuindo seus valores em
-	// um ArrayList
+	/**
+	 * MÈtodo para listar pilha. Percorre os nas da pilha atribuindo seus valores em
+	 * um ArrayList 
+	 * Complexidade O(N)
+	 * 
+	 * @return
+	 * @throws EmptyStackException
+	 */
 	public ArrayList<String> Listar() throws EmptyStackException {
 		if (topo == null) {
-			throw new EmptyStackException("A pilha est√° vazia");
+			throw new EmptyStackException("A pilha est· vazia");
 		} else {
 			ArrayList<String> listar = new ArrayList<String>();
 			Nodo aux = topo;
@@ -67,20 +101,31 @@ public class Pilha {
 		}
 	}
 
+	/**
+	 * Complexidade O(N)
+	 */
 	public void print() {
 		ArrayList<String> lista = Listar();
 		if (lista.isEmpty())
 			System.out.println("Pilha Vazia");
 		else
-		for (String elemento : lista)
-			System.out.println(elemento);
+			for (String elemento : lista)
+				System.out.println(elemento);
 	}
 
-	// M√©todo para listar pilha. Percorre os n√≥s da pilha atribuindo seus valores em
-	// um ArrayList
+	/**
+	 * MÈtodo para listar pilha. 
+	 * Percorre os nÛs da pilha atribuindo seus valores
+	 * em um ArrayList
+	 * Complexidade O(N)
+	 * 
+	 * @return
+	 * @throws EmptyStackException
+	 */
+
 	public String obtemPrimeiroElemento() throws EmptyStackException {
 		if (topo == null) {
-			throw new EmptyStackException("A pilha est√° vazia");
+			throw new EmptyStackException("A pilha est· vazia");
 		} else {
 			ArrayList<String> listar = new ArrayList<String>();
 			Nodo aux = topo;

@@ -41,7 +41,7 @@ public class TestaPilha {
 					System.out.println(vl);
 				}
 			} else
-				System.out.println("OpÃ§Ã£o invÃ¡lida!");
+				System.out.println("Opção inválida!");
 
 		} while (resp != "9");
 	}
