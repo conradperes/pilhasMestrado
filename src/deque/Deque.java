@@ -48,13 +48,11 @@ public class Deque {
 	public static void main(String[] args) {
 		menu();
 	}
-	
-	
-	
+
 	/**
-	 * Permite ao usu·rio escolher entre Pilha Sequencial ou 
-	 * Encadeada, pode ser chamado estaticamente tanto em 
-	 * Unit Test, quanto em main()
+	 * Permite ao usu√°rio escolher entre Pilha Sequencial ou Encadeada, pode ser
+	 * chamado estaticamente tanto em Unit Test, quanto em main()
+	 * Complexidade O(N)
 	 */
 	private static void menu() {
 		Deque d = new Deque();
@@ -72,7 +70,11 @@ public class Deque {
 				d.escolheOperacoesEncadeada(sc, pilhaEncadeada);
 		}
 	}
-
+	/**
+	 * Complexidade O(1)
+	 * @param sc
+	 * @param pilha
+	 */
 	private void escolheOperacoesEncadeada(Scanner sc, Pilha pilha) {
 		int op = sc.nextInt();
 		switch (op) {
@@ -83,13 +85,13 @@ public class Deque {
 			pilha.desempilha();
 			break;
 		case 3:
-			System.out.println("\t\nTopo/⁄ltimo da Pilha Encadeada=" + pilha.topo());
+			System.out.println("\t\nTopo/ÔøΩltimo da Pilha Encadeada=" + pilha.topo());
 			break;
 		case 4:
 			System.out.println("\t\nTamanho=\t" + pilha.Listar().size());
 			break;
 		case 5:
-			System.out.println("\t\nObtÈm primeiro=\t" + pilha.obtemPrimeiroElemento());
+			System.out.println("\t\nObtÔøΩm primeiro=\t" + pilha.obtemPrimeiroElemento());
 			break;
 		case 6:
 			System.out.println("\t\nListar tudo=\t" + pilha.Listar());
@@ -109,7 +111,11 @@ public class Deque {
 		System.out.println("\tDigite a operaÔøΩÔøΩo:\n\t1-Inserir pilha encadeada" + "\n\t2-Desempilhar\n\t3-Topo"
 				+ "\n\t4-Tamanho\n\t5-Obtem Primeiro" + "\n\t6-Listar ");
 	}
-
+	/**
+	 * Complexidade O(1)
+	 * @param d
+	 * @param sc
+	 */
 	private void escolheOperacoesSequenciais(Deque d, Scanner sc) {
 		int op = sc.nextInt();
 		switch (op) {
@@ -146,6 +152,7 @@ public class Deque {
 		}
 
 	}
+
 	/**
 	 * Complexidade O(N)
 	 */
@@ -155,7 +162,7 @@ public class Deque {
 				System.out.println(c);
 		}
 	}
-	
+
 	/**
 	 * Complexidade O(1)
 	 * @param valor
@@ -166,9 +173,10 @@ public class Deque {
 	}
 
 	/**
-	 * Quest„oo 2 que insere elementos na Pilha utilizando duas filas
-	 *  como estruturas auxiliares
-	 *  Complexidade O(1)
+	 * Quest√£o 2 que insere elementos na Pilha utilizando duas filas como estruturas
+	 * auxiliares 
+	 * Complexidade O(1)
+	 * 
 	 * @param fila1
 	 *            Fila 1 auxiliar
 	 * @param fila2
@@ -188,6 +196,7 @@ public class Deque {
 		// fila1.setFila(elementos);
 		// fila2.setFila(elementos);
 	}
+
 	/**
 	 * Complexidade O(N)
 	 * @param valor
@@ -202,7 +211,7 @@ public class Deque {
 			elementos[indiceFinal + 1] = valor;
 		}
 	}
-	
+
 	/**
 	 * Complexidade O(1)
 	 * @return
@@ -213,7 +222,7 @@ public class Deque {
 		return elementos[contador];
 
 	}
-	
+
 	/**
 	 * Complexidade O(N)
 	 */
@@ -223,7 +232,7 @@ public class Deque {
 			contador--;
 		}
 	}
-	
+
 	/**
 	 * Complexidade O(N)
 	 */
@@ -239,12 +248,13 @@ public class Deque {
 	}
 
 	/**
-	 * Obt√©m o primeiro elemento da pilha
+	 * Obt√©m o primeiro elemento da pilha 
 	 * Complexidade O(1)
+	 * 
 	 * @return
 	 */
 	public String topo() {
-		if(elementos[0]==null)
+		if (elementos[0] == null)
 			return "";
 		if (elementos[contador] != null)
 			return elementos[contador];
@@ -254,8 +264,9 @@ public class Deque {
 	}
 
 	/**
-	 * ObtÈm ⁄ltimo elemento da pilha
-	 * complexidade O(N)
+	 * Obt√©m √∫ltimo elemento da pilha
+	 * Complexidade O(N)
+	 * 
 	 * @return
 	 */
 	public String ultimo() {
@@ -270,14 +281,14 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo da quest„o 4 com 1 Pilha e uma Fila que inverte a ordem dos seus
-	 * elementos - letra a
+	 * Algoritmo da quest√£o 4 com 1 Pilha e uma Fila que inverte a ordem dos seus
+	 * elementos - letra a 
 	 * Complexidade O(N)
 	 * 
 	 * @param pilha
-	 *            Pilha que se· usada como par‚metro para a invers„o de elementos
+	 *            Pilha que seÔøΩ usada como parÔøΩmetro para a inversÔøΩo de elementos
 	 * @param fila
-	 *            Fila que servir· de estrutura auxiliar para inverter os elementos
+	 *            Fila que servirÔøΩ de estrutura auxiliar para inverter os elementos
 	 * @return Array de Strings com os elementos invertidos
 	 * @throws EmptyStackException
 	 */
@@ -290,13 +301,14 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo da quest„o 4 com 2 Pilhas que inverte a ordem dos seus elementos -
+	 * Algoritmo da quest√£o 4 com 2 Pilhas que inverte a ordem dos seus elementos -
 	 * letra b
 	 * Complexidade O(N)
+	 * 
 	 * @param pilha
-	 *            Pilha que ser· usada como par‚metro para a invers„o de elementos
+	 *            Pilha que ser√° usada como par√¢metro para a invers√£o de elementos
 	 * @param pilha2
-	 *            Pilha que servir· de estrutura auxiliar para inverter os elementos
+	 *            Pilha que servir√° de estrutura auxiliar para inverter os elementos
 	 * @return Array de Strings com os elementos invertidos
 	 * @throws EmptyStackException
 	 */
@@ -308,6 +320,12 @@ public class Deque {
 		return pilha2.getElementos();
 	}
 
+	/**
+	 * Complexidade O(N)
+	 * @param pilha
+	 * @return
+	 * @throws EmptyStackException
+	 */
 	public String[] inverteElementos(Deque pilha) throws EmptyStackException {
 		// String elementosAuxiliares[] = pilha.elementos;
 		String elementosInvertidos[] = inverte(pilha.elementos, 0, pilha.elementos.length - 1);
@@ -319,7 +337,7 @@ public class Deque {
 
 	/**
 	 * Quest√£o 5 letra a
-	 * 
+	 * Complexidade O(N)
 	 * @param fila
 	 * @param pilha
 	 * @return
@@ -334,19 +352,20 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo recursivo de invers„o de elementos: 
+	 * Algoritmo recursivo de invers√£o de elementos:
 	 * 
-	 * 1-Quando o Õndice for maior ou igual ao tamanho do vetor, then retornar· o vetor 
-	 * 2-caso contr·rio a valor auxiliar recebe o elemento passado por par‚metro
-	 * 3-A posiÁ„o correspondente ao Õndice passado por par‚metro recebe o 
-	 * ⁄ltimo elemento, trocando assim de posiÁ„o
-	 * 4- E o ⁄ltimo recebe o auxiliar, ou seja, o Ìndice atual, ent„o isso
-	 * acontece recursivamente atÈ que o Ìndice seja zero e o tamanho do vetor seja zero
+	 * 1-Quando o √≠ndice for maior ou igual ao tamanho do vetor, then retornar√° o vetor 
+	 * 2-caso contr√°rio a valor auxiliar recebe o elemento passado por par√¢metro 
+	 * 3-A posi√ß√£o correspondente ao √≠ndice passado por par√¢metro recebe o
+	 * √∫ltimo elemento, trocando assim de posi√ß√£o 
+	 * 4- E o √∫ltimo recebe o auxiliar, ou seja, o √≠ndice atual, ent√£o isso acontece recursivamente
+	 *  at√© que o √≠ndice seja zero e o tamanho do vetor seja zero 
 	 * Complexidade O(N)
+	 * 
 	 * @param v Vetor de Strings a ser invertido
-	 * @param indice Õndice a percorrer
-	 * @param tamanho tamanho m·ximo do vetor em quest„o
- 	 */
+	 * @param indice √≠ndice a percorrer
+	 * @param tamanho tamanho m√°ximo do vetor em quest√£o
+	 */
 	public static String[] inverte(String[] v, int indice, int tamanho) {
 		String aux;
 		if (indice >= tamanho) {
@@ -360,13 +379,11 @@ public class Deque {
 	}
 
 	/**
-	 * Algoritmo da quest„o 5 com 2 Filas que inverte a ordem dos seus elementos -
-	 * letra b
-	 *  Complexidade O(N)
-	 * @param fila
-	 *            Fila que ser· usada como par‚metro para a invers„o de elementos
-	 * @param fila2
-	 *            Fila que servir· de estrutura auxiliar para inverter os elementos
+	 * Algoritmo da quest√£o 5 com 2 Filas que inverte a ordem dos seus elementos -
+	 * letra b 
+	 * Complexidade O(N)
+	 * @param fila    Fila que ser√° usada como par√¢metro para a invers√£o de elementos
+	 * @param fila2 Fila que servir√° de estrutura auxiliar para inverter os elementos
 	 * @return Array de Strings com os elementos invertidos
 	 * @throws EmptyStackException
 	 */
