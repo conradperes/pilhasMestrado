@@ -14,7 +14,11 @@ public class MonitoradorRoteador {
 	public MonitoradorRoteador() {
 		super();
 	}
-
+	/**
+	 * Complexidade O(1)
+	 * @param expressao
+	 * @param controle
+	 */
 	public void monitora(String expressao, Stack controle) {
 		if (expressao.charAt(0) == 'E') {
 			controle.push(expressao.subSequence(1, expressao.length()));

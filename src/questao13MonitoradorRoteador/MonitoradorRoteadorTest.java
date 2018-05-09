@@ -15,7 +15,9 @@ public class MonitoradorRoteadorTest {
 		super();
 		sc = new Scanner(System.in);
 	}
-
+	/**
+	 * Complexidade O(N)
+	 */
 	@Test
 	public void testMonitora() {
 		try {
