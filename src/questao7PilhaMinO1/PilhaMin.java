@@ -28,7 +28,10 @@ public class PilhaMin extends Deque {
 		this.pilha = new Deque();
 	}
 
-
+	/**
+	 * Complexidade O(1)
+	 * @param elemento
+	 */
 	public void queue(String elemento) {
 		String topo = pilha.topo();
 		if(topo.isEmpty())

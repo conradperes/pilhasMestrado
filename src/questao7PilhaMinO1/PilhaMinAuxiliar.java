@@ -2,28 +2,19 @@ package questao7PilhaMinO1;
 
 import java.util.Scanner;
 
-import org.junit.Test;
-
 import deque.Deque;
 
-public class PilhaMinTest {
+public class PilhaMinAuxiliar {
 	Deque pilhaBase;
 	private Scanner sc;
-	PilhaMin min;
-	/**
-	 * Complexidade O(1)
-	 */
-	public PilhaMinTest() {
+	PilhaMin min ;
+
+	public PilhaMinAuxiliar() {
 		super();
 		sc = new Scanner(System.in);
 		pilhaBase = new Deque();
 	}
 
-	/**
-	 * Complexidade O(N)
-	 * 
-	 * @return
-	 */
 	public Deque inserirPilhaMin() {
 		int i = 0;
 		while (sc.hasNext()) {
@@ -36,31 +27,29 @@ public class PilhaMinTest {
 		return pilhaBase;
 	}
 
-	/**
-	 * Complexidade O(N)
-	 * 
-	 * @return
-	 */
-	@Test
 	public String testRetornaMenorElemento() {
-		String menorElemento = "";
+		String menorElemento ="";
 		try {
-			new PilhaMinTest();
-			pilhaBase = inserirPilhaMin();
-			min = new PilhaMin();
-			for (String elemento : pilhaBase.getElementos()) {
-				if (elemento != null)
-					min.queue(elemento);
-			}
+			pilhaMin();
 			menorElemento = min.retornaElementoComMenorChave(min.getPilha());
 			System.out.println("Retorna menor elemento:");
 			System.out.println(menorElemento);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// pilhaBase.desempilha();
+			//pilhaBase.desempilha();
 		}
 		return menorElemento;
 	}
 
+	private PilhaMin pilhaMin() {
+		new PilhaMinTest();
+		pilhaBase = inserirPilhaMin();
+		min = new PilhaMin();
+		for (String elemento : pilhaBase.getElementos()) {
+			if(elemento!=null)
+				min.queue(elemento);
+		}
+		return min;
+	}
 }
