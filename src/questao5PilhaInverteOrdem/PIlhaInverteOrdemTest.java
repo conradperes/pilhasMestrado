@@ -15,7 +15,9 @@ public class PIlhaInverteOrdemTest {
 		sc = new Scanner(System.in);
 		pilhaAux = new PIlhaInverteOrdem();
 	}
-
+	/**
+	 * Complexidade O(N)
+	 */
 	public void inserirPilhaMin() {
 		int i = 0;
 		while (sc.hasNext()) {
@@ -26,7 +28,9 @@ public class PIlhaInverteOrdemTest {
 
 		}
 	}
-	
+	/**
+	 * Complexidade O(N)
+	 */
 	@Test
 	public void testInverteOrdem() {
 		new PIlhaInverteOrdemTest();

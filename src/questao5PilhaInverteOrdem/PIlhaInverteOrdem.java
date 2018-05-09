@@ -4,7 +4,7 @@ import java.util.Stack;
 
 import br.edu.fasul.lac.estruturas.Pilha;
 import deque.Deque;
-import deque.PilhaMinAuxiliar;
+import questao7PilhaMinO1.PilhaMinAuxiliar;
 
 public class PIlhaInverteOrdem extends Pilha {
 	Pilha pilhaOrdenada;
@@ -13,13 +13,13 @@ public class PIlhaInverteOrdem extends Pilha {
 	Deque pilhaBase;
 	Pilha min;
 
-	public String getElementoInicial() {
-		return elementoInicial;
-	}
-
-	public void setElementoInicial(String elementoInicial) {
-		this.elementoInicial = elementoInicial;
-	}
+	// public String getElementoInicial() {
+	// return elementoInicial;
+	// }
+	//
+	// public void setElementoInicial(String elementoInicial) {
+	// this.elementoInicial = elementoInicial;
+	// }
 
 	public PIlhaInverteOrdem() {
 		super();
@@ -34,12 +34,12 @@ public class PIlhaInverteOrdem extends Pilha {
 	 * @param pilhaMin
 	 * @param pilhaAux
 	 */
-	public void queue(Pilha pilhaAux, PIlhaInverteOrdem ordered) {
-		
-		String topoAux = (String) pilhaAux.verificarFinal();
-		ordered.insere(topoAux);
-		pilhaAux.retira();
-	}
+//	public void queue(Pilha pilhaAux, PIlhaInverteOrdem ordered) {
+//		
+//		String topoAux = (String) pilhaAux.verificarFinal();
+//		ordered.insere(topoAux);
+//		pilhaAux.retira();
+//	}
 
 	// void pilha_ordenar_itens( pilha_t * p ){
 	// for( int i = 0; i < p->qtd; i++ ){
@@ -53,20 +53,20 @@ public class PIlhaInverteOrdem extends Pilha {
 	// }
 	// }
 	
-	public Stack ordenar(Stack pilha) {
-		Stack ordenados = new Stack<>();
-		for (int i = 0; i < pilha.size(); i++) {
-			for (int j = i+1; j < pilha.size(); j++) {
-				if(new Integer(pilha.elementAt(i).toString())>new Integer(pilha.elementAt(j).toString())) {
-					int aux = new Integer(pilha.elementAt(i).toString());
-					ordenados.insertElementAt(pilha.elementAt(j),i);
-					//ordenados.remove(i);
-				}
-			}
-		}
-		return ordenados;
-	}
-	
+//	public Stack ordenar(Stack pilha) {
+//		Stack ordenados = new Stack<>();
+//		for (int i = 0; i < pilha.size(); i++) {
+//			for (int j = i+1; j < pilha.size(); j++) {
+//				if(new Integer(pilha.elementAt(i).toString())>new Integer(pilha.elementAt(j).toString())) {
+//					int aux = new Integer(pilha.elementAt(i).toString());
+//					ordenados.insertElementAt(pilha.elementAt(j),i);
+//					//ordenados.remove(i);
+//				}
+//			}
+//		}
+//		return ordenados;
+//	}
+//	
 	
 	/**
 	 * Algoritmo O(N) que pega os elementos de uma pilha e 
@@ -94,50 +94,50 @@ public class PIlhaInverteOrdem extends Pilha {
 		return ordenada;
 	}
 
-	public String menorElementoPilha() {
-		PilhaMinAuxiliar aux = new PilhaMinAuxiliar();
-		return aux.testRetornaMenorElemento();
-	}
-
-	public Deque getPilhaMin() {
-		PilhaMinAuxiliar aux = new PilhaMinAuxiliar();
-		return aux.inserirPilhaMin();
-	}
-
-	public String getMenor(Pilha a) {
-		for (String e : a.getPilha().listar()) {
-			queue(e);
-		}
-		return (String) min.verificarFinal();
-	}
-
-	public Pilha ordenacao(Pilha p, Pilha ordenada) {
-		if (p.isVazia())
-			return ordenada;
-		int dado, aux = 0;
-		ordenada.insere(getMenor(p));
-		aux = Integer.parseInt(p.retira().toString());
-		while (!p.isVazia()) {
-			dado = Integer.parseInt(p.retira().toString());
-			if (aux <= dado) {
-				aux = dado;
-				ordenada.insere(aux);
-			} else {
-				ordenada.insere(dado);
-			}
-		}
-		return ordenada;
-	}
-	
-
-	public void queue(String elemento) {
-		String topo ="";
-		if (min.isVazia())
-			min.insere(elemento);
-		else
-			 topo = (String) min.getPilha().verificarInicio();
-		if (!elemento.isEmpty() && !topo.isEmpty() && Integer.parseInt(elemento) <= Integer.parseInt(topo))
-			min.insere(elemento);
-	}
+//	public String menorElementoPilha() {
+//		PilhaMinAuxiliar aux = new PilhaMinAuxiliar();
+//		return aux.testRetornaMenorElemento();
+//	}
+//
+//	public Deque getPilhaMin() {
+//		PilhaMinAuxiliar aux = new PilhaMinAuxiliar();
+//		return aux.inserirPilhaMin();
+//	}
+//
+//	public String getMenor(Pilha a) {
+//		for (String e : a.getPilha().listar()) {
+//			queue(e);
+//		}
+//		return (String) min.verificarFinal();
+//	}
+//
+//	public Pilha ordenacao(Pilha p, Pilha ordenada) {
+//		if (p.isVazia())
+//			return ordenada;
+//		int dado, aux = 0;
+//		ordenada.insere(getMenor(p));
+//		aux = Integer.parseInt(p.retira().toString());
+//		while (!p.isVazia()) {
+//			dado = Integer.parseInt(p.retira().toString());
+//			if (aux <= dado) {
+//				aux = dado;
+//				ordenada.insere(aux);
+//			} else {
+//				ordenada.insere(dado);
+//			}
+//		}
+//		return ordenada;
+//	}
+//	
+//
+//	public void queue(String elemento) {
+//		String topo ="";
+//		if (min.isVazia())
+//			min.insere(elemento);
+//		else
+//			 topo = (String) min.getPilha().verificarInicio();
+//		if (!elemento.isEmpty() && !topo.isEmpty() && Integer.parseInt(elemento) <= Integer.parseInt(topo))
+//			min.insere(elemento);
+//	}
 
 }
