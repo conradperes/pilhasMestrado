@@ -11,11 +11,19 @@ public class CalculadoraNotacaoPolonesaReversa extends Validacao {
 	Pilha deque;
 	Scanner sc;
 
+	/**
+	 * Complexidade O(1)
+	 */
 	public void iniciar() {
 		opcoes();
 		menu(sc.nextInt());
 	}
 
+	/**
+	 * Complexidade O(1)
+	 * 
+	 * @throws EmptyStackException
+	 */
 	private void calculaNPR() throws EmptyStackException {
 		String numero = sc.next();
 		if (isDigit(numero))
@@ -47,6 +55,11 @@ public class CalculadoraNotacaoPolonesaReversa extends Validacao {
 		}
 	}
 
+	/**
+	 * Complexidade O(1)
+	 * 
+	 * @param opcao
+	 */
 	private void menu(int opcao) {
 		switch (opcao) {
 		case 1:
@@ -68,6 +81,9 @@ public class CalculadoraNotacaoPolonesaReversa extends Validacao {
 		}
 	}
 
+	/**
+	 * Complexidade O(1)
+	 */
 	private void opcoes() {
 		System.out.println("1- Desempilha para realizar outras equações:");
 		System.out.println("2-Exibe pilha:");
@@ -76,12 +92,18 @@ public class CalculadoraNotacaoPolonesaReversa extends Validacao {
 
 	}
 
+	/**
+	 * Complexidade O(1)
+	 */
 	public CalculadoraNotacaoPolonesaReversa() {
 		super();
 		deque = new Pilha();
 		sc = new Scanner(System.in);
 	}
 
+	/**
+	 * Complexidade O(1)
+	 */
 	private double aplicarOperador(char op) {
 		double operadorEsquerdo, operadorDireito = 0;
 		operadorDireito = Double.parseDouble(deque.topo());
@@ -89,6 +111,9 @@ public class CalculadoraNotacaoPolonesaReversa extends Validacao {
 		return realizarOperacoes(op, operadorEsquerdo, operadorDireito);
 	}
 
+	/**
+	 * Complexidade O(1)
+	 */
 	private double aplicarOperador(char op, int tamanhoEquacao) {
 		double operadorEsquerdo, operadorDireito, resultado = 0;
 		operadorDireito = Double.parseDouble(deque.topo());
@@ -101,11 +126,14 @@ public class CalculadoraNotacaoPolonesaReversa extends Validacao {
 			e.printStackTrace();
 			System.out.println("Erro ao Operar o NPR=" + e.getMessage());
 		}
-		//deque.desempilha();
+		// deque.desempilha();
 		return resultadoFinal;
 		// deque.print();
 	}
 
+	/**
+	 * Complexidade O(1)
+	 */
 	private double realizarOperacoes(char op, double operadorEsquerdo, double operadorDireito) {
 		double resultado = 0;
 		switch (op) {

@@ -5,7 +5,9 @@ import org.junit.Test;
 import pilhaEncadeada.EmptyStackException;
 
 public class CalculadorNPRTest {
-
+	/**
+	 * Complexidade O(1)
+	 */
 	@Test
 	public void testCalculaNPR() {
 		try {
