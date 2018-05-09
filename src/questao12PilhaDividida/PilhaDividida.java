@@ -24,7 +24,7 @@ public class PilhaDividida {
 		for (int i = 0; i<quantidadePilhas; i++) {
 			Stack pilha = new Stack();
 			listaPilhas.add(pilha);
-			pilha.setSize(tamanhoPilhas);
+			pilha.setSize(tamanhoPilhas*quantidadePilhas);
 		}
 	}
 	/**
