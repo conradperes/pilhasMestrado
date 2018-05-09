@@ -9,7 +9,8 @@ public class Fila {
 	String fila[] = new String[NUMERO_MAXIMO_FILA];
 
 	/**
-	 *  M�todo para Inserir elementos na Fila
+	 * Complexidade O(1) Método para Inserir elementos na Fila
+	 * 
 	 * @param elemento
 	 */
 	public void inserirNaFila(String elemento) {
@@ -23,7 +24,7 @@ public class Fila {
 	}
 
 	/**
-	 *  M�todo para Remover elementos da Fila
+	 * Complexidade O(N) Método para Remover elementos da Fila
 	 */
 	public void removerDaFila() {
 
@@ -43,7 +44,7 @@ public class Fila {
 	}
 
 	/**
-	 *  M�todo para Exibir elementos da Fila
+	 * Complexidade O(1) Método para Exibir elementos da Fila
 	 */
 	public void exibirFila() {
 		System.out.print("Fila: ");
@@ -53,7 +54,7 @@ public class Fila {
 	}
 
 	/**
-	 *  M�todo para Retirar todos elementos da Fila
+	 * Complexidade O(1) Método para Retirar todos elementos da Fila
 	 */
 	public void LimparFila() {
 		System.out.println("Fila Limpa!");
@@ -61,7 +62,8 @@ public class Fila {
 	}
 
 	/**
-	 *  M�todo Gerenciador da Fila
+	 * Complexidade O(N) Método Gerenciador da Fila
+	 * 
 	 * @param fila
 	 */
 	public void play(Fila fila) {
@@ -72,8 +74,9 @@ public class Fila {
 			escolheOperacao(sc, fila);
 		}
 	}
+
 	/**
-	 * Menu de op��es da Fila
+	 * Complexidade O(1) Menu de opções da Fila
 	 */
 	private void menuFila() {
 		System.out.println("\n======= MENU  FILA =======");
@@ -84,9 +87,10 @@ public class Fila {
 		System.out.println("5 - Sair ");
 		System.out.println("============================");
 	}
+
 	/**
-	 * M�todo que executa as op��es 
-	 * do menu
+	 * Complexidade O(1) Método que executa as opções do menu
+	 * 
 	 * @param sc
 	 * @param fila
 	 */
@@ -113,8 +117,10 @@ public class Fila {
 			break;
 		}
 	}
+
 	/**
-	 * Execu��o da Fila em si
+	 * Complexidade O(1) Execução da Fila em si
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -122,14 +128,18 @@ public class Fila {
 		fila.play(fila);
 	}
 
-
+	/**
+	 * Complexidade O(1)
+	 */
 	public String[] getFila() {
 		return fila;
 	}
 
+	/**
+	 * Complexidade O(1)
+	 */
 	public void setFila(String[] fila) {
 		this.fila = fila;
 	}
-
 
 }
