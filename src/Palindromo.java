@@ -2,54 +2,53 @@ package palindromo;
 
 import java.util.Scanner;
 
-import deque.Deque;
-import fila.Fila;
+import br.edu.fasul.lac.estruturas.Fila;
+import br.edu.fasul.lac.estruturas.Pilha;
 
 public class Palindromo {
 
-	Deque pilha;
+	Pilha pilha;
 
-	public Palindromo(Deque pilha) {
+	public Palindromo(Pilha pilha) {
 		super();
 		this.pilha = pilha;
 	}
 
 	public void empilha(String valor) {
-		pilha.inserirInicio(valor);
+		pilha.insere(valor);
 	}
 
 	public boolean ehPalindromo(Fila fila) {
-
-		// fila.setFila(pilha.getElementos());
-
-		for (int i = 0; i < fila.getFila().length; i++) {
-			if (pilha.topo().equalsIgnoreCase(pilha.ultimo())) {
-				pilha.removeTopo();
-				pilha.removeFim();
-				fila.removerDaFila();
+		int i = 0;
+		while (!fila.isVazia()) {
+			if (pilha.getPilha().listar().size() > 1
+					&& pilha.getPilha().verificarInicio().equals(pilha.verificarFinal())) {
+				pilha.retira();
+				pilha.getPilha().removerDoInicio();
+				fila.retira();
+				i++;
+			}else {
+				return false;
 			}
-			if (i == fila.getFila().length) {
-				if (fila.getFila().length == 1)
-					return true;
-				else
-					return false;
-			}
+			if (pilha.getPilha().listar().size() == 1)
+				return true;
 		}
-
 		return false;
 	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Digite a palavra supostamente Palindroma:");
-		Palindromo palindromo = new Palindromo(new Deque());
-		String palavra = sc.next();
+		Palindromo palindromo = new Palindromo(new Pilha());
 		Fila fila = new Fila();
+		variosPalindromos(palindromo, sc.next(), fila);
+	}
+
+	private static void variosPalindromos(Palindromo palindromo, String palavra, Fila fila) {
 		for (int i = 0; i < palavra.length(); i++) {
 			palindromo.empilha(palavra.charAt(i) + "");
-			fila.inserirNaFila(palavra.charAt(i) + "");
+			fila.insere(palavra.charAt(i));
 		}
-
 		System.out.println(palindromo.ehPalindromo(fila));
 	}
 
